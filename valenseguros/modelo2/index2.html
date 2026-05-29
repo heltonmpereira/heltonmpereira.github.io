@@ -8,6 +8,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    @font-face {
+        font-family: Oregon;
+        src: url("font/Oregon.ttf");
+    }
     .glass {
       background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(14px);
@@ -19,6 +23,23 @@
       background: rgba(255,255,255,0.9);
       backdrop-filter: blur(18px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    #corretora{
+      font-family: "Oregon";
+      color: #444;
+    }
+
+    #nomeCorretora{
+      font-size: 52px;
+      line-height: 32px;
+      font-weight: 400;
+    }
+
+    #textoCorretora{
+      font-size: 09px;
+      font-weight: 100;
+      padding-left: 10px;
     }
   </style>
 </head>
@@ -35,7 +56,11 @@
       <!-- LOGO -->
       <div class="flex items-center" id="logo">
         <img src="img/company/logoIcone.png" alt="Valen Seguros">
-        <img src="img/company/logoCorretora.png" alt="Valen Seguros">
+        
+        <span id="corretora" class="flex flex-col items-center">
+          <span id="nomeCorretora" class="py-0">Valen</span>
+          <span id="textoCorretora" class="py-0">CORRETORA DE SEGUROS</span>
+        </span>
       </div>
 
       <!-- OPERADORAS -->
