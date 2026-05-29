@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valen Seguros</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Ajuste opcional para efeito glass mais suave */
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 glass shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+      <!-- LOGO -->
+      <div class="flex items-center">
+        <img src="img/company/logoIcone.png" alt="Valen Seguros">
+        <img src="img/company/logoCorretora.png" alt="Valen Seguros">
+      </div>
+
+      <!-- ICONES (somente tablet/desktop) -->
+      <div class="hidden md:flex items-center gap-6">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/SulAmerica_logo.svg"
+             class="h-8 opacity-80 hover:opacity-100 transition">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Bradesco_Sa%C3%BAde_logo.svg"
+             class="h-8 opacity-80 hover:opacity-100 transition">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Amil_logo.svg"
+             class="h-8 opacity-80 hover:opacity-100 transition">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Porto_Saude_logo.svg"
+             class="h-8 opacity-80 hover:opacity-100 transition">
+
+      </div>
+
+      <!-- BOTÃO WHATSAPP -->
+      <a href="https://wa.me/5511971058091"
+         target="_blank"
+         class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow-md transition">
+
+        <!-- Ícone WhatsApp -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.52 3.48A11.91 11.91 0 0012.07 0C5.47 0 .06 5.41.06 12c0 2.12.56 4.19 1.63 6.02L0 24l6.18-1.61A11.93 11.93 0 0012.07 24c6.6 0 12.01-5.41 12.01-12 0-3.2-1.25-6.2-3.56-8.52zM12.07 21.82c-1.8 0-3.57-.48-5.13-1.39l-.37-.22-3.67.96.98-3.57-.24-.37a9.73 9.73 0 01-1.49-5.2c0-5.38 4.38-9.76 9.76-9.76 2.6 0 5.05 1.01 6.89 2.85a9.7 9.7 0 012.87 6.91c0 5.38-4.38 9.79-9.76 9.79zm5.36-7.3c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15s-.74.93-.9 1.12c-.17.2-.33.22-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.33.43-.5.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.52-.07-.15-.64-1.54-.88-2.1-.23-.55-.47-.47-.64-.48l-.55-.01c-.19 0-.5.07-.76.37s-1 1-.98 2.43c.02 1.43 1.03 2.81 1.18 3 .14.2 2.04 3.12 5.02 4.25.71.31 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.7-.7 1.94-1.38.24-.68.24-1.26.17-1.38-.07-.11-.26-.18-.55-.33z"/>
+        </svg>
+
+        <span class="hidden sm:inline">Fale no WhatsApp</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- ESPAÇO PARA NÃO SOBREPOR -->
+  <div class="h-16 md:h-20"></div>
+
+</body>
+</html>
