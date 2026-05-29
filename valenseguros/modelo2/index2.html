@@ -19,27 +19,21 @@
       border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
-    .header-scrolled {
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
     #corretora{
       font-family: "Oregon";
       color: #444;
     }
 
     #nomeCorretora{
-      font-size: 52px;
-      line-height: 32px;
+      font-size: 4em;
+      line-height: 38px;
       font-weight: 400;
     }
 
     #textoCorretora{
-      font-size: 09px;
+      font-size: 0.67em;
       font-weight: 100;
-      padding-left: 10px;
+      padding-left: 14px;
     }
   </style>
 </head>
@@ -55,10 +49,10 @@
 
       <!-- LOGO -->
       <div class="flex items-center" id="logo">
-        <img src="img/company/logoIcone.png" alt="Valen Seguros">
+        <img src="img/company/logoIcone.png" width="96" alt="Valen Seguros">
         
         <span id="corretora" class="flex flex-col items-center">
-          <span id="nomeCorretora" class="py-0">Valen</span>
+          <span id="nomeCorretora" class="pt-3">Valen</span>
           <span id="textoCorretora" class="py-0">CORRETORA DE SEGUROS</span>
         </span>
       </div>
@@ -66,16 +60,16 @@
       <!-- OPERADORAS -->
       <div class="hidden md:flex items-center gap-6">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/SulAmerica_logo.svg"
+        <img src="img/company/sulamerica.png"
              class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Bradesco_Sa%C3%BAde_logo.svg"
+        <img src="img/company/amil.png"
              class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Amil_logo.svg"
+        <img src="img/company/bradescoSaude.png"
              class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Porto_Saude_logo.svg"
+        <img src="img/company/portoSaude.png"
              class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
       </div>
@@ -89,7 +83,7 @@
           <path d="M20.52 3.48A11.91 11.91 0 0012.07 0C5.47 0 .06 5.41.06 12c0 2.12.56 4.19 1.63 6.02L0 24l6.18-1.61A11.93 11.93 0 0012.07 24c6.6 0 12.01-5.41 12.01-12 0-3.2-1.25-6.2-3.56-8.52zM12.07 21.82c-1.8 0-3.57-.48-5.13-1.39l-.37-.22-3.67.96.98-3.57-.24-.37a9.73 9.73 0 01-1.49-5.2c0-5.38 4.38-9.76 9.76-9.76 2.6 0 5.05 1.01 6.89 2.85a9.7 9.7 0 012.87 6.91c0 5.38-4.38 9.79-9.76 9.79zm5.36-7.3c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15s-.74.93-.9 1.12c-.17.2-.33.22-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.33.43-.5.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.52-.07-.15-.64-1.54-.88-2.1-.23-.55-.47-.47-.64-.48l-.55-.01c-.19 0-.5.07-.76.37s-1 1-.98 2.43c.02 1.43 1.03 2.81 1.18 3 .14.2 2.04 3.12 5.02 4.25.71.31 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.7-.7 1.94-1.38.24-.68.24-1.26.17-1.38-.07-.11-.26-.18-.55-.33z"/>
         </svg>
 
-        <span class="hidden sm:inline">WhatsApp</span>
+        <span class="hidden sm:inline">Fale conosco</span>
       </a>
 
     </div>
@@ -138,34 +132,6 @@
     </section>
 
   </main>
-
-  <!-- SCRIPT SCROLL -->
-  <script>
-    const header = document.getElementById('header');
-    const inner = document.getElementById('header-inner');
-    const logo = document.getElementById('logo');
-    const spacer = document.getElementById('header-spacer');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-        inner.classList.remove('h-20');
-        inner.classList.add('h-14');
-        logo.classList.remove('h-12');
-        logo.classList.add('h-8');
-        spacer.classList.remove('h-20');
-        spacer.classList.add('h-14');
-      } else {
-        header.classList.remove('header-scrolled');
-        inner.classList.add('h-20');
-        inner.classList.remove('h-14');
-        logo.classList.add('h-12');
-        logo.classList.remove('h-8');
-        spacer.classList.add('h-20');
-        spacer.classList.remove('h-14');
-      }
-    });
-  </script>
 
 </body>
 </html>
