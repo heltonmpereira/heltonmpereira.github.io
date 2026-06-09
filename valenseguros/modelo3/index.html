@@ -1,42 +1,414 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#262626">
+  <meta name="description" content="Planos de saúde individuais, familiares e empresariais com atendimento consultivo da Valen Corretora de Seguros.">
   <title>Valen Corretora de Seguros | Planos de Saúde</title>
-  <meta name="description" content="Planos de saúde individual, familiar e empresarial. Compare Bradesco Saúde, SulAmérica, Amil, Porto Saúde e MedSenior com a Valen Corretora de Seguros." />
-  <meta name="theme-color" content="#e30613" />
-  <link rel="preload" href="assets/valen-logo.png" as="image" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="assets/hero-individual.jpg" as="image" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    @keyframes ticker { to { transform: translateX(-48%); } }
+    .operator-ticker { animation: ticker 18s linear infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .operator-ticker { animation: none; }
+      * { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
 </head>
-<body>
-<header id="header" class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="#topo"><img src="assets/valen-logo.png" width="190" alt="Valen Corretora de Seguros"></a>
-    <div class="operators-strip"><span>SulAmérica</span><span>Amil</span><span>Bradesco Saúde</span><span>Porto Saúde</span><span>MedSenior</span></div>
-    <a class="whatsapp-button header-whats" data-message="Olá, gostaria de cotar um plano de saúde com a Valen." href="#"><span>WhatsApp</span></a>
-  </div>
-</header>
-<main>
-<section id="topo" class="hero">
-  <div class="hero-carousel">
-    <article class="hero-slide is-active"><div class="hero-copy reveal"><span class="eyebrow">Plano individual</span><h1>Você merece ser cuidado.</h1><p>Encontre um plano com boa cobertura, rede de qualidade e atendimento consultivo.</p><a class="primary-cta whatsapp-button" data-message="Olá, quero cotar um plano de saúde individual." href="#">Cotar plano individual</a></div><div class="hero-visual reveal"><div class="photo-card individual"></div><div class="floating-card">Atendimento rápido<br><strong>via WhatsApp</strong></div></div></article>
-    <article class="hero-slide"><div class="hero-copy reveal"><span class="eyebrow">Plano familiar</span><h2>Proteja quem você mais ama.</h2><p>Compare opções para sua família com foco em segurança, hospitais de referência e custo-benefício.</p><a class="primary-cta whatsapp-button" data-message="Olá, quero cotar um plano de saúde familiar." href="#">Cotar plano familiar</a></div><div class="hero-visual reveal"><div class="photo-card family"></div><div class="floating-card">Cobertura para<br><strong>toda a família</strong></div></div></article>
-    <article class="hero-slide"><div class="hero-copy reveal"><span class="eyebrow">Plano empresarial</span><h2>Proteja quem faz a diferença.</h2><p>Planos empresariais para reduzir custos, melhorar benefícios e valorizar sua equipe.</p><a class="primary-cta whatsapp-button" data-message="Olá, quero cotar um plano de saúde empresarial." href="#">Cotar plano empresarial</a></div><div class="hero-visual reveal"><div class="photo-card business"></div><div class="floating-card">Estratégia para<br><strong>redução de custos</strong></div></div></article>
-    <div class="carousel-controls"><button class="dot is-active" data-slide="0"></button><button class="dot" data-slide="1"></button><button class="dot" data-slide="2"></button></div>
-  </div>
-</section>
-<section class="lead-form-section reveal"><div class="section-heading compact"><span class="eyebrow">Cotação rápida</span><h2>Receba uma análise pelo WhatsApp</h2></div><form id="lead-form" class="lead-form"><label>Nome<input id="nome" required placeholder="Seu nome"></label><label>Tipo de plano<select id="tipoPlano" required><option value="">Selecione</option><option>Individual</option><option>Familiar</option><option>Empresarial</option></select></label><label>Necessidade<select id="necessidade" required><option value="">Selecione</option><option>Plano novo</option><option>Troca / portabilidade</option></select></label><button type="submit">Enviar pelo WhatsApp</button></form></section>
-<section class="promise reveal"><h2>A Valen ajuda você a encontrar o melhor plano para sua necessidade.</h2><p>Comparamos operadoras, cobertura, rede hospitalar e custo-benefício para você contratar com segurança no local onde mora, em viagens pelo Brasil ou até no exterior.</p></section>
-<section class="why reveal"><div><span class="eyebrow">Saúde sem espera</span><h2>Por que ter um plano de saúde?</h2><p>Um bom plano oferece mais previsibilidade, agilidade no atendimento, acesso a exames, especialistas e hospitais de referência, reduzindo a dependência de filas e incertezas.</p></div><div class="stats-grid"><div><strong>24h</strong><span>suporte para orientar sua escolha</span></div><div><strong>+5</strong><span>operadoras analisadas</span></div><div><strong>ABC</strong><span>Santo André, ABC e São Paulo</span></div></div></section>
-<section class="operators reveal"><div class="section-heading"><span class="eyebrow">Operadoras e vantagens</span><h2>Compare cobertura, rede e benefícios</h2></div><div class="operator-grid"><article><h3>Bradesco Saúde</h3><p>Rede premium, abrangência nacional e foco empresarial.</p><span>Hospitais de referência</span></article><article><h3>SulAmérica</h3><p>Boa rede credenciada, programas de saúde e tradição.</p><span>Atendimento nacional</span></article><article><h3>Amil</h3><p>Opções familiares e empresariais com variedade de redes.</p><span>Custo-benefício</span></article><article><h3>Porto Saúde</h3><p>Planos com atendimento consultivo e diferenciais.</p><span>Serviços agregados</span></article><article><h3>MedSenior</h3><p>Soluções voltadas ao público sênior.</p><span>Cuidado contínuo</span></article></div></section>
-<section class="hospitals reveal"><div class="section-heading compact"><span class="eyebrow">Rede de referência</span><h2>Hospitais e laboratórios que podem fazer parte da sua cobertura</h2></div><div class="chip-list"><span>Sírio-Libanês</span><span>Albert Einstein</span><span>Oswaldo Cruz</span><span>Santa Catarina</span><span>Samaritano</span><span>9 de Julho</span><span>Beneficência Portuguesa</span><span>São Luiz</span><span>Alvorada Moema</span></div><p class="note">A rede disponível varia conforme operadora, plano, contratação e região. A Valen orienta a melhor opção para seu perfil.</p></section>
-<section class="about reveal"><div><span class="eyebrow">Sobre a Valen</span><h2>Experiência consultiva para escolher com segurança.</h2><p>A Valen Corretora de Seguros atua com consultoria em planos de saúde individuais, familiares e empresariais, ajudando clientes a comparar operadoras, reduzir custos e fazer portabilidade sem abrir mão de qualidade.</p></div><div class="about-cards"><div><strong>Atendimento humanizado</strong><span>orientação de ponta a ponta</span></div><div><strong>Especialista em portabilidade</strong><span>troca com análise técnica</span></div><div><strong>Operadoras premium</strong><span>comparativo personalizado</span></div></div></section>
-<section class="reviews reveal"><div class="section-heading"><span class="eyebrow">Avaliações</span><h2>O que clientes dizem</h2><p>Espaço preparado para integrar avaliações positivas do Google Perfil da Empresa.</p></div><div class="review-grid"><article><strong>★★★★★</strong><p>“Atendimento excelente e muito rápido. Me ajudaram a trocar de plano com economia.”</p><span>Cliente Valen</span></article><article><strong>★★★★★</strong><p>“Explicaram as diferenças entre as operadoras e encontrei uma opção melhor para minha família.”</p><span>Cliente Valen</span></article><article><strong>★★★★★</strong><p>“Consultoria clara para o plano empresarial. Recomendo.”</p><span>Cliente Valen</span></article></div></section>
-<section class="final-cta reveal"><h2>Quer pagar melhor e manter uma boa cobertura?</h2><p>Fale agora com a Valen e receba uma análise personalizada.</p><a class="primary-cta whatsapp-button" data-message="Olá, quero uma análise personalizada para plano de saúde." href="#">Falar no WhatsApp</a></section>
-</main>
-<a class="floating-whats whatsapp-button" data-message="Olá, vim pelo site da Valen e quero cotar um plano de saúde." href="#">☎</a>
-<footer><img src="assets/valen-logo.png" width="160" alt="Valen Corretora de Seguros"><p>Valen Corretora de Seguros · Santo André · ABC · São Paulo</p></footer>
-<script src="script.js" defer></script>
+<body
+  x-data="valenPage()"
+  x-init="init()"
+  class="m-0 overflow-x-hidden bg-white font-['Poppins'] text-[#262626] antialiased selection:bg-[#7A1F2B] selection:text-white"
+>
+  <a href="#conteudo" class="fixed -top-20 left-4 z-[200] rounded-lg bg-white px-4 py-3 shadow-xl focus:top-3">Ir para o conteúdo</a>
+
+  <header
+    id="header"
+    class="fixed inset-x-0 top-0 z-50 border-b border-[#262626]/10 bg-white/95 text-[#262626] backdrop-blur-xl transition-shadow duration-300"
+    :class="scrolled && 'shadow-[0_8px_30px_rgba(38,38,38,.12)]'"
+  >
+    <div class="mx-auto flex min-h-[66px] w-[min(1180px,calc(100%-30px))] items-center justify-between gap-5 md:min-h-[76px] md:w-[min(1180px,calc(100%-40px))]">
+      <a href="#inicio" class="flex shrink-0 items-center gap-2.5" aria-label="Valen Corretora de Seguros - início">
+        <svg class="w-9 text-[#7A1F2B] md:w-11" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 5 57 16v17c0 14-9.8 22.4-25 27C16.8 55.4 7 47 7 33V16L32 5Z" fill="currentColor"/>
+          <path d="m18 24 14 24 14-24-7-3-7 13-7-13-7 3Z" fill="#fff"/>
+        </svg>
+        <span class="flex flex-col leading-none">
+          <strong class="text-[26px] font-bold italic tracking-[-.8px] md:text-[30px]">Valen</strong>
+          <small class="mt-1 text-[7px] font-extrabold uppercase tracking-[1.4px] md:text-[8px]">Corretora de Seguros</small>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-4 whitespace-nowrap text-[13px] font-bold lg:flex" aria-label="Operadoras parceiras">
+        <template x-for="(operator, index) in operatorNames" :key="operator">
+          <span class="contents">
+            <span x-text="operator"></span>
+            <i x-show="index < operatorNames.length - 1" class="size-1 rounded-full bg-[#7A1F2B]"></i>
+          </span>
+        </template>
+      </div>
+
+      <button
+        @click="menuOpen = !menuOpen"
+        type="button"
+        class="ml-auto grid size-11 place-items-center rounded-full border border-[#262626]/15 text-[#262626] transition hover:border-[#7A1F2B] hover:text-[#7A1F2B] lg:hidden"
+        :aria-expanded="menuOpen"
+        aria-controls="mobile-navigation"
+        aria-label="Abrir menu de navegação"
+      >
+        <svg x-show="!menuOpen" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg x-show="menuOpen" x-cloak class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+
+      <a
+        :href="wa('Olá! Gostaria de conhecer os planos de saúde da Valen.')"
+        target="_blank"
+        rel="noopener"
+        class="flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#20b85a] px-3 text-sm font-extrabold text-white shadow-[0_9px_22px_rgba(32,184,90,.25)] transition hover:-translate-y-0.5 hover:bg-[#18a34d] sm:px-5"
+      >
+        <svg class="w-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.1 4.9A9.9 9.9 0 0 0 3.5 16.8L2 22l5.3-1.4A10 10 0 1 0 19.1 4.9Zm-7 15.4a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.3Zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.1-.3.2-.5.1-1.5-.7-2.5-1.3-3.5-3-.2-.3.2-.5.6-1 .1-.2.1-.3 0-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.5 3.8 1.7.7 2.4.8 3.3.7 1-.1 1.4-.7 1.6-1.2.2-.6.2-1 .1-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>
+        <span class="hidden sm:inline">Fale conosco</span>
+      </a>
+    </div>
+
+    <nav class="hidden border-t border-[#262626]/10 lg:block" aria-label="Navegação principal">
+      <div class="mx-auto flex h-11 w-[min(1180px,calc(100%-40px))] items-center justify-center gap-8">
+        <template x-for="item in navItems" :key="item.href">
+          <a
+            :href="item.href"
+            class="relative py-3 text-xs font-semibold uppercase tracking-[1px] text-[#555555] transition after:absolute after:inset-x-0 after:bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:bg-[#7A1F2B] after:transition-transform hover:text-[#7A1F2B] hover:after:scale-x-100"
+            x-text="item.label"
+          ></a>
+        </template>
+      </div>
+    </nav>
+
+    <div class="overflow-hidden border-t border-[#262626]/10 lg:hidden" aria-label="Principais operadoras">
+      <div class="operator-ticker flex min-w-max items-center gap-4 px-5 py-2 text-xs font-bold">
+        <template x-for="(operator, index) in [...operatorNames, ...operatorNames]" :key="index">
+          <span class="flex items-center gap-4"><span x-text="operator"></span><i class="size-1 rounded-full bg-[#7A1F2B]"></i></span>
+        </template>
+      </div>
+    </div>
+
+    <nav
+      id="mobile-navigation"
+      x-show="menuOpen"
+      x-cloak
+      x-transition:enter="transition duration-200 ease-out"
+      x-transition:enter-start="-translate-y-3 opacity-0"
+      x-transition:enter-end="translate-y-0 opacity-100"
+      x-transition:leave="transition duration-150 ease-in"
+      x-transition:leave-start="translate-y-0 opacity-100"
+      x-transition:leave-end="-translate-y-3 opacity-0"
+      @click.outside="menuOpen = false"
+      class="absolute inset-x-0 top-full border-t border-[#262626]/10 bg-white px-4 py-3 shadow-xl lg:hidden"
+      aria-label="Navegação mobile"
+    >
+      <div class="mx-auto grid max-w-xl grid-cols-2 gap-1">
+        <template x-for="item in navItems" :key="item.href">
+          <a
+            :href="item.href"
+            @click="menuOpen = false"
+            class="rounded-xl px-4 py-3 text-sm font-semibold text-[#444444] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B]"
+            x-text="item.label"
+          ></a>
+        </template>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section id="inicio" class="scroll-mt-[101px] pt-[101px] lg:scroll-mt-[121px] lg:pt-[121px]" aria-label="Modalidades de planos de saúde">
+      <div
+        class="relative h-[520px] overflow-hidden bg-[#262626] md:h-[480px]"
+        @mouseenter="pauseCarousel()"
+        @mouseleave="startCarousel()"
+        @touchstart.passive="touchStart = $event.changedTouches[0].clientX"
+        @touchend.passive="swipe($event.changedTouches[0].clientX)"
+      >
+        <template x-for="(item, index) in slides" :key="item.type">
+          <article
+            x-show="slide === index"
+            x-transition:enter="transition-opacity duration-700"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition-opacity duration-500"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="absolute inset-0 grid grid-rows-[38%_62%] bg-[#262626] md:grid-cols-[46%_54%] md:grid-rows-1"
+            :aria-hidden="slide !== index"
+          >
+            <div class="relative row-start-1 overflow-hidden md:col-start-2">
+              <img
+                :src="item.image"
+                :alt="item.alt"
+                class="h-full w-full object-cover object-center"
+                width="1400"
+                height="933"
+                :fetchpriority="index === 0 ? 'high' : 'auto'"
+              >
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#262626]/15 to-[#262626] md:bg-gradient-to-r md:from-[#262626] md:via-[#262626]/45 md:to-transparent"></div>
+            </div>
+            <div class="z-10 row-start-2 flex items-center md:col-start-1 md:row-start-1">
+              <div class="mx-auto w-[min(1180px,calc(100%-30px))] pb-14 text-white md:w-full md:pb-8 md:pl-[max(40px,calc((100vw-1180px)/2))] md:pr-6">
+                <p class="text-xs font-black uppercase tracking-[2.4px] text-[#E7B8BD]" x-text="item.type"></p>
+                <h1 class="mt-1.5 text-[clamp(37px,10.5vw,48px)] font-bold leading-[.98] tracking-[-2px] md:mt-2 md:text-[clamp(48px,4.5vw,64px)] md:tracking-[-2.5px]">
+                  <span x-text="item.title"></span><br><em class="font-normal text-[#D79AA1]" x-text="item.emphasis"></em>
+                </h1>
+                <p class="mt-3 max-w-lg text-[13px] leading-5 text-white/75 md:mt-4 md:text-[15px] md:leading-6" x-text="item.copy"></p>
+                <a
+                  :href="wa(item.message)"
+                  target="_blank"
+                  rel="noopener"
+                  class="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-extrabold text-[#262626] shadow-xl transition hover:-translate-y-1 md:mt-5 md:min-h-12 md:text-base"
+                >
+                  <span x-text="item.cta"></span><span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </template>
+
+        <div class="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 md:bottom-5 md:left-[max(40px,calc((100vw-1180px)/2))] md:translate-x-0">
+          <button @click="previous()" class="grid size-10 place-items-center rounded-full border border-white/40 text-white transition hover:bg-white hover:text-[#262626]" aria-label="Banner anterior">←</button>
+          <div class="flex gap-2" role="tablist" aria-label="Escolher modalidade">
+            <template x-for="(_, index) in slides" :key="index">
+              <button
+                @click="goTo(index)"
+                class="h-1 rounded-full transition-all duration-300"
+                :class="slide === index ? 'w-12 bg-white' : 'w-7 bg-white/30'"
+                :aria-selected="slide === index"
+                :aria-label="slides[index].type"
+                role="tab"
+              ></button>
+            </template>
+          </div>
+          <button @click="next()" class="grid size-10 place-items-center rounded-full border border-white/40 text-white transition hover:bg-white hover:text-[#262626]" aria-label="Próximo banner">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cotacao" class="scroll-mt-[101px] bg-[#7A1F2B] py-9 lg:scroll-mt-[121px]" aria-label="Solicite sua cotação">
+      <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-6 lg:grid-cols-[.8fr_1.55fr] lg:items-end lg:gap-10">
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'" class="flex items-start gap-4 transition duration-700">
+          <span class="grid size-11 shrink-0 place-items-center rounded-full border border-white/45 text-[11px] font-black text-white">01</span>
+          <div>
+            <p class="text-xs font-black uppercase tracking-[2px] text-[#E7B8BD]">Cotação sem compromisso</p>
+            <h2 class="mt-2 text-[28px] font-semibold leading-tight text-white">Vamos encontrar o plano certo para você.</h2>
+          </div>
+        </div>
+
+        <form
+          @submit.prevent="submitQuote()"
+          x-data="{ shown: false }"
+          x-intersect.once="shown = true"
+          :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+          class="grid gap-3 transition delay-100 duration-700 sm:grid-cols-2 lg:grid-cols-[1.1fr_.85fr_.85fr_auto] lg:items-end"
+        >
+          <label class="block sm:col-span-2 lg:col-span-1">
+            <span class="mb-2 ml-3 block text-[11px] font-extrabold text-white">Como podemos chamar você?</span>
+            <input x-model.trim="quote.name" required autocomplete="name" placeholder="Seu nome" class="h-12 w-full rounded-xl border-0 bg-white px-4 outline-2 outline-transparent focus:outline-[#D79AA1]">
+          </label>
+          <label class="block">
+            <span class="mb-2 ml-3 block text-[11px] font-extrabold text-white">Qual plano procura?</span>
+            <select x-model="quote.plan" required class="h-12 w-full rounded-xl border-0 bg-white px-4 outline-2 outline-transparent focus:outline-[#D79AA1]">
+              <option value="" disabled>Selecione</option><option>Individual</option><option>Familiar</option><option>Empresarial</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="mb-2 ml-3 block text-[11px] font-extrabold text-white">É plano novo ou troca?</span>
+            <select x-model="quote.situation" required class="h-12 w-full rounded-xl border-0 bg-white px-4 outline-2 outline-transparent focus:outline-[#D79AA1]">
+              <option value="" disabled>Selecione</option><option>Plano novo</option><option>Troca de plano</option>
+            </select>
+          </label>
+          <button class="min-h-12 rounded-full bg-[#262626] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#1A1A1A] sm:col-span-2 lg:col-span-1">Conversar no WhatsApp →</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="beneficios" class="scroll-mt-[101px] overflow-hidden py-20 md:py-28 lg:scroll-mt-[121px]">
+      <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-9 lg:grid-cols-[1.35fr_.65fr] lg:items-end lg:gap-20">
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'" class="transition duration-700">
+          <p class="text-xs font-black uppercase tracking-[2.4px] text-[#7A1F2B]">Escolha com tranquilidade</p>
+          <h2 class="mt-3 text-[40px] font-semibold leading-[1.08] tracking-[-1.5px] text-[#262626] md:text-[clamp(48px,5vw,64px)]">
+            O melhor plano não é o mais caro.<br><em class="font-normal text-[#7A1F2B]">É o que faz sentido para você.</em>
+          </h2>
+        </div>
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'" class="transition delay-150 duration-700">
+          <p class="text-[17px] leading-8 text-[#666666]">A Valen compara opções, redes e coberturas para ajudar você a tomar uma decisão segura, com o melhor equilíbrio entre preço e proteção.</p>
+          <a :href="wa('Olá! Quero ajuda para comparar planos de saúde.')" target="_blank" class="mt-6 inline-flex gap-2 border-b-2 border-[#7A1F2B] pb-1 font-extrabold text-[#262626]">Quero comparar planos →</a>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-12 grid w-[min(1180px,calc(100%-30px))] gap-5 md:mt-16 md:grid-cols-3">
+        <template x-for="(benefit, index) in benefits" :key="benefit.title">
+          <article
+            x-data="{ shown: false }"
+            x-intersect.once="shown = true"
+            :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'"
+            :style="`transition-delay: ${index * 100}ms`"
+            class="rounded-3xl border border-[#D6D3D3] p-7 transition duration-700 hover:-translate-y-2 hover:border-[#7A1F2B] hover:shadow-[0_18px_50px_rgba(38,38,38,.12)] md:p-8"
+          >
+            <span class="grid size-13 place-items-center rounded-2xl bg-[#F4E9EA] text-2xl text-[#7A1F2B]" x-text="benefit.icon"></span>
+            <h3 class="mt-6 text-xl font-bold text-[#262626]" x-text="benefit.title"></h3>
+            <p class="mt-3 leading-7 text-[#666666]" x-text="benefit.copy"></p>
+          </article>
+        </template>
+      </div>
+    </section>
+
+    <section id="importancia" class="scroll-mt-[101px] overflow-hidden bg-[#262626] py-20 text-white md:py-28 lg:scroll-mt-[121px]">
+      <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:gap-24">
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'scale-100 opacity-100' : 'scale-95 opacity-0'" class="relative transition duration-700">
+          <div class="absolute -left-40 -top-20 size-[400px] rounded-full border border-[#D79AA1]/15 shadow-[0_0_0_70px_rgba(181,72,85,.05),0_0_0_140px_rgba(181,72,85,.03)]"></div>
+          <div class="relative">
+            <span class="grid size-11 place-items-center rounded-full border border-white/40 text-[11px] font-black">02</span>
+            <p class="mt-8 text-xs font-black uppercase tracking-[2.4px] text-[#E7B8BD]">Por que ter um plano?</p>
+            <h2 class="mt-3 max-w-xl text-[44px] font-semibold leading-[1.06] tracking-[-2px] md:text-[clamp(50px,5vw,65px)]">Saúde não deveria depender da espera.</h2>
+            <p class="mt-6 max-w-xl leading-8 text-white/70">O SUS é essencial para milhões de brasileiros. Um plano de saúde pode complementar esse cuidado, oferecendo mais previsibilidade, acesso a uma rede privada e agilidade em consultas e exames, conforme a cobertura contratada.</p>
+            <a :href="wa('Olá! Quero entender qual plano combina com minhas necessidades.')" target="_blank" class="mt-7 inline-flex min-h-12 items-center rounded-full border border-white/50 px-5 font-extrabold transition hover:bg-white hover:text-[#262626]">Entender minhas opções</a>
+          </div>
+        </div>
+        <div>
+          <template x-for="(reason, index) in reasons" :key="reason.title">
+            <article
+              x-data="{ shown: false }"
+              x-intersect.once="shown = true"
+              :class="shown ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'"
+              :style="`transition-delay: ${index * 120}ms`"
+              class="grid grid-cols-[48px_1fr] gap-5 border-b border-white/15 py-7 transition duration-700 last:border-0"
+            >
+              <b class="text-3xl font-semibold italic text-[#D79AA1]" x-text="`0${index + 1}`"></b>
+              <div><h3 class="text-xl font-bold" x-text="reason.title"></h3><p class="mt-2 leading-7 text-white/65" x-text="reason.copy"></p></div>
+            </article>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <section id="operadoras" class="scroll-mt-[101px] bg-[#F3F1F1] py-20 md:py-28 lg:scroll-mt-[121px]">
+      <div class="mx-auto w-[min(1180px,calc(100%-30px))]">
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'" class="mx-auto max-w-3xl text-center transition duration-700">
+          <p class="text-xs font-black uppercase tracking-[2.4px] text-[#7A1F2B]">Principais operadoras</p>
+          <h2 class="mt-3 text-[40px] font-semibold leading-[1.08] tracking-[-1.5px] text-[#262626] md:text-[clamp(48px,5vw,64px)]">Boas escolhas começam<br><em class="font-medium text-[#7A1F2B]">por uma boa comparação.</em></h2>
+          <p class="mx-auto mt-5 max-w-2xl leading-7 text-[#666666]">Rede e benefícios variam conforme categoria, região e contrato. A Valen ajuda a conferir cada detalhe.</p>
+        </div>
+
+        <div class="mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <template x-for="(operator, index) in operators" :key="operator.name">
+            <article
+              x-data="{ shown: false }"
+              x-intersect.once="shown = true"
+              :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'"
+              :style="`transition-delay: ${index * 90}ms`"
+              class="flex min-h-[380px] flex-col rounded-3xl bg-white p-7 shadow-[0_10px_25px_rgba(7,59,76,.05)] transition duration-700 hover:-translate-y-2 hover:shadow-xl"
+            >
+              <div class="flex min-h-14 items-center text-2xl font-black" :class="operator.color" x-text="operator.name"></div>
+              <h3 class="mt-5 text-xl font-bold text-[#262626]" x-text="operator.title"></h3>
+              <ul class="mt-3 text-sm leading-7 text-[#666666]">
+                <template x-for="item in operator.items" :key="item">
+                  <li class="border-b border-[#E8E5E5] py-1.5 before:mr-2 before:font-black before:text-[#7A1F2B] before:content-['✓']" x-text="item"></li>
+                </template>
+              </ul>
+              <button @click="openWa(`Olá! Quero conhecer as opções da ${operator.name}.`)" class="mt-auto self-start border-b-2 border-[#7A1F2B] pb-1 text-sm font-extrabold text-[#262626]">Conhecer opções →</button>
+            </article>
+          </template>
+        </div>
+        <p class="mx-auto mt-7 max-w-4xl text-center text-xs leading-5 text-[#737373]">As características acima são gerais e podem mudar. Consulte abrangência, rede credenciada, carências, elegibilidade e condições do produto no momento da cotação.</p>
+      </div>
+    </section>
+
+    <section id="sobre" class="scroll-mt-[101px] overflow-hidden py-20 md:py-28 lg:scroll-mt-[121px]">
+      <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:gap-24">
+        <div
+          x-data="{ shown: false }"
+          x-intersect.once="shown = true"
+          :class="shown ? 'rotate-0 scale-100 opacity-100' : '-rotate-2 scale-95 opacity-0'"
+          class="flex min-h-[340px] flex-col items-center justify-center rounded-[28px_28px_100px_28px] bg-gradient-to-br from-[#7A1F2B] to-[#4B1118] text-white shadow-[0_18px_50px_rgba(38,38,38,.18)] transition duration-700 md:min-h-[500px] md:rounded-[32px_32px_160px_32px]"
+        >
+          <div class="text-[130px] font-semibold italic leading-[.8] md:text-[190px]">V</div>
+          <span class="mt-8 text-center text-2xl font-medium italic leading-8">Escolhas seguras.<br>Cuidado de verdade.</span>
+        </div>
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'" class="transition delay-100 duration-700">
+          <p class="text-xs font-black uppercase tracking-[2.4px] text-[#7A1F2B]">Sobre a Valen</p>
+          <h2 class="mt-3 text-[40px] font-semibold leading-[1.08] tracking-[-1.5px] text-[#262626] md:text-[50px]">Uma corretora que escuta antes de indicar.</h2>
+          <p class="mt-6 leading-8 text-[#666666]">A Valen Corretora de Seguros nasceu para tornar decisões importantes mais simples. Nosso atendimento é consultivo: entendemos sua rotina, prioridades e orçamento antes de apresentar as possibilidades.</p>
+          <p class="mt-4 leading-8 text-[#666666]">Da primeira conversa ao pós-venda, você conta com orientação humana para escolher e usar seu plano com mais segurança.</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <template x-for="point in aboutPoints" :key="point.title">
+              <div class="border-t-2 border-[#7A1F2B] pt-4"><strong class="block text-[#262626]" x-text="point.title"></strong><span class="mt-1 block text-xs leading-5 text-[#666666]" x-text="point.copy"></span></div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avaliacoes" class="scroll-mt-[101px] overflow-hidden bg-[#F5F4F4] py-20 md:py-28 lg:scroll-mt-[121px]">
+      <div class="mx-auto w-[min(1180px,calc(100%-30px))]">
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'" class="flex flex-col items-start justify-between gap-8 transition duration-700 lg:flex-row lg:items-end">
+          <div><p class="text-xs font-black uppercase tracking-[2.4px] text-[#7A1F2B]">Experiência de atendimento</p><h2 class="mt-3 text-[40px] font-semibold leading-[1.08] tracking-[-1.5px] text-[#262626] md:text-[clamp(48px,5vw,64px)]">O que faz a diferença<br><em class="font-medium text-[#7A1F2B]">para nossos clientes.</em></h2></div>
+          <div class="flex max-w-sm gap-3 rounded-2xl bg-white p-4 shadow-lg">
+            <span class="grid size-10 shrink-0 place-items-center text-3xl font-black text-[#4285f4]">G</span>
+            <div><strong class="block text-sm text-[#262626]">Avaliações Google</strong><small class="mt-1 block text-[10px] leading-4 text-[#666666]">Conecte o perfil da empresa para exibir avaliações reais</small></div>
+          </div>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          <template x-for="(review, index) in reviewValues" :key="review.title">
+            <article
+              x-data="{ shown: false }"
+              x-intersect.once="shown = true"
+              :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'"
+              :style="`transition-delay: ${index * 100}ms`"
+              class="rounded-3xl bg-white p-8 transition duration-700 hover:-translate-y-2 hover:shadow-xl"
+            >
+              <div class="text-sm tracking-[3px] text-[#e9a23b]">★★★★★</div>
+              <h3 class="mt-5 text-2xl font-semibold text-[#262626]" x-text="review.title"></h3>
+              <p class="mt-3 leading-7 text-[#666666]" x-text="review.copy"></p>
+            </article>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#7A1F2B] py-20 text-center text-white">
+      <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'scale-100 opacity-100' : 'scale-90 opacity-0'" class="mx-auto w-[min(900px,calc(100%-30px))] transition duration-700">
+        <p class="text-xs font-black uppercase tracking-[2.4px] text-[#E7B8BD]">Sua saúde merece uma boa escolha</p>
+        <h2 class="mt-3 text-[48px] font-semibold leading-none tracking-[-2px] text-white md:text-[74px]">Vamos encontrar seu plano?</h2>
+        <p class="mt-4 text-lg text-white/75">Conte para a Valen o que você precisa. A gente cuida da comparação.</p>
+        <a :href="wa('Olá! Vim pelo site da Valen e gostaria de fazer uma cotação.')" target="_blank" class="mt-7 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#20b85a] px-7 font-extrabold text-white shadow-xl transition hover:-translate-y-1 hover:bg-[#18a34d]">Começar pelo WhatsApp →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#1A1A1A] pt-16 text-white/65">
+    <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_.7fr_1fr_1fr]">
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a href="#inicio" class="flex items-center gap-2.5 text-white">
+          <svg class="w-11 text-[#D79AA1]" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 57 16v17c0 14-9.8 22.4-25 27C16.8 55.4 7 47 7 33V16L32 5Z" fill="currentColor"/><path d="m18 24 14 24 14-24-7-3-7 13-7-13-7 3Z" fill="#fff"/></svg>
+          <span class="flex flex-col leading-none"><strong class="text-3xl font-bold italic">Valen</strong><small class="mt-1 text-[8px] font-bold uppercase tracking-[1.5px]">Corretora de Seguros</small></span>
+        </a>
+        <p class="mt-5 max-w-xs leading-7">Proteção para a sua saúde, seus planos e tudo o que você constrói.</p>
+        <div class="mt-5 flex gap-2"><a href="#" class="grid size-9 place-items-center rounded-full border border-white/20 text-xs font-bold hover:text-white">ig</a><a href="#" class="grid size-9 place-items-center rounded-full border border-white/20 text-xs font-bold hover:text-white">f</a><a href="#" class="grid size-9 place-items-center rounded-full border border-white/20 text-xs font-bold hover:text-white">in</a></div>
+      </div>
+      <div class="flex flex-col gap-3 text-sm"><h3 class="mb-1 font-bold uppercase tracking-wider text-white">Soluções</h3><a href="#inicio" class="hover:text-white">Planos de saúde</a><a href="#" class="hover:text-white">Seguro auto</a><a href="#" class="hover:text-white">Consórcio</a><a href="#" class="hover:text-white">Outros seguros</a></div>
+      <div class="flex flex-col gap-3 text-sm"><h3 class="mb-1 font-bold uppercase tracking-wider text-white">Contato</h3><a href="tel:+5511971058091" class="hover:text-white">(11) 97105-8091</a><a href="mailto:contato@valenseguros.com.br" class="hover:text-white">contato@valenseguros.com.br</a><span>Atendimento em todo o Brasil</span></div>
+      <div class="flex min-h-40 flex-col items-center justify-center rounded-2xl bg-[#303030] p-5 text-center"><div class="text-4xl text-[#D79AA1]">⌖</div><strong class="text-white">Valen Corretora</strong><span class="mt-2 text-xs">Adicione aqui o endereço comercial</span></div>
+    </div>
+    <div class="mx-auto mt-14 flex w-[min(1180px,calc(100%-30px))] flex-col justify-between gap-3 border-t border-white/10 py-5 text-[11px] sm:flex-row"><span>© <span x-text="new Date().getFullYear()"></span> Valen Corretora de Seguros.</span><span>Planos de saúde sujeitos às regras da ANS e condições das operadoras.</span></div>
+  </footer>
+
+  <a :href="wa('Olá! Gostaria de falar com um consultor da Valen.')" target="_blank" aria-label="Falar com a Valen pelo WhatsApp" class="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-[#20b85a] text-white shadow-2xl transition hover:scale-110 md:hidden">
+    <svg class="w-8 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.1 4.9A9.9 9.9 0 0 0 3.5 16.8L2 22l5.3-1.4A10 10 0 1 0 19.1 4.9Zm-7 15.4a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.3Zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.1-.3.2-.5.1-1.5-.7-2.5-1.3-3.5-3-.2-.3.2-.5.6-1 .1-.2.1-.3 0-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.5 3.8 1.7.7 2.4.8 3.3.7 1-.1 1.4-.7 1.6-1.2.2-.6.2-1 .1-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>
+  </a>
 </body>
 </html>
