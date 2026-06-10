@@ -25,8 +25,8 @@ document.addEventListener("alpine:init", () => {
     slides: [
       {
         type: "Plano individual",
-        title: "Você merece",
-        emphasis: "ser cuidado.",
+        title: "Sua saúde merece",
+        emphasis: "o melhor cuidado.",
         copy: "Escolha uma cobertura que acompanhe o seu ritmo, seus planos e cada nova fase.",
         cta: "Cotar plano individual",
         message: "Olá! Quero uma cotação para plano de saúde individual.",
@@ -35,8 +35,8 @@ document.addEventListener("alpine:init", () => {
       },
       {
         type: "Plano familiar",
-        title: "Proteja quem",
-        emphasis: "você mais ama.",
+        title: "Sua família",
+        emphasis: "merece o melhor.",
         copy: "Cuidado para toda a família, com opções pensadas para a rotina e o orçamento de vocês.",
         cta: "Cotar plano familiar",
         message: "Olá! Quero uma cotação para plano de saúde familiar.",
@@ -45,7 +45,7 @@ document.addEventListener("alpine:init", () => {
       },
       {
         type: "Plano empresarial",
-        title: "Cuide de quem",
+        title: "Valorize quem",
         emphasis: "faz a diferença.",
         copy: "Valorize sua equipe com um benefício que ajuda a atrair talentos e fortalece sua empresa.",
         cta: "Cotar plano empresarial",
