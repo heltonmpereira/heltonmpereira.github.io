@@ -58,32 +58,35 @@
       </div>
 
       <!-- OPERADORAS -->
-      <div class="hidden md:flex items-center gap-6">
+      <div class="lg:flex items-center gap-8">
 
         <img src="img/company/sulamerica.png"
-             class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
+             class="hidden sm:inline h-8 opacity-80 hover:opacity-100 transition hover:scale-105 ">
 
         <img src="img/company/amil.png"
-             class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
+             class="hidden md:inline h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
         <img src="img/company/bradescoSaude.png"
-             class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
+             class="hidden lg:inline h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
         <img src="img/company/portoSaude.png"
-             class="h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
+             class="hidden lg:inline h-8 opacity-80 hover:opacity-100 transition hover:scale-105">
 
       </div>
 
       <!-- WHATSAPP -->
       <a href="https://wa.me/5511971058091"
-         class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow-md transition hover:scale-105">
+         class="flex items-center gap-2 bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow-md transition hover:scale-105">
 
         <!-- Ícone WhatsApp -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.52 3.48A11.91 11.91 0 0012.07 0C5.47 0 .06 5.41.06 12c0 2.12.56 4.19 1.63 6.02L0 24l6.18-1.61A11.93 11.93 0 0012.07 24c6.6 0 12.01-5.41 12.01-12 0-3.2-1.25-6.2-3.56-8.52zM12.07 21.82c-1.8 0-3.57-.48-5.13-1.39l-.37-.22-3.67.96.98-3.57-.24-.37a9.73 9.73 0 01-1.49-5.2c0-5.38 4.38-9.76 9.76-9.76 2.6 0 5.05 1.01 6.89 2.85a9.7 9.7 0 012.87 6.91c0 5.38-4.38 9.79-9.76 9.79zm5.36-7.3c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15s-.74.93-.9 1.12c-.17.2-.33.22-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.14-.14.29-.33.43-.5.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.52-.07-.15-.64-1.54-.88-2.1-.23-.55-.47-.47-.64-.48l-.55-.01c-.19 0-.5.07-.76.37s-1 1-.98 2.43c.02 1.43 1.03 2.81 1.18 3 .14.2 2.04 3.12 5.02 4.25.71.31 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.7-.7 1.94-1.38.24-.68.24-1.26.17-1.38-.07-.11-.26-.18-.55-.33z"/>
         </svg>
 
-        <span class="hidden sm:inline">Fale conosco</span>
+        <div class="flex flex-col p-0">
+          <span class="p-0 hidden sm:inline-block text-end text-lg">Fale conosco</span>
+          <p class="p-0 hidden sm:inline-block text-sm">(11) 97105-8091</p>
+        </div>
       </a>
 
     </div>
@@ -96,20 +99,21 @@
   <main class="space-y-16">
 
     <!-- HERO -->
-    <section class="h-[92vh] bg-cover bg-center flex items-center justify-center"
-      style="background-image: url('https://picsum.photos/1600/900?random=1')">
+    <section class="h-[30vh] bg-cover bg-center flex place-items-end"
+             style="background-image: url('img/quadro1.webp')">
 
-      <div class="glass p-10 md:rounded-2xl max-w-2xl text-center shadow-xl">
-        <h1 class="text-4xl font-bold mb-4">Proteja seu futuro hoje</h1>
+             <!--
+      <div class="glass md:rounded-tr-2xl p-10 max-w-2xl border-t border-r">
+        <h1 class="text-4xl font-bold mb-4"><span class="text-green-700">Proteja</span> seu futuro hoje</h1>
         <p>Compare planos de saúde com as melhores operadoras do Brasil.</p>
       </div>
-
+      -->
     </section>
 
     <!-- CARDS -->
     <section class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6">
 
-      <div class="glass p-6 rounded-xl shadow-lg">
+      <div class="glass p-6 rounded-xl shadow-2xl">
         <img src="https://picsum.photos/400/250?random=2" class="rounded-lg mb-4">
         <h3 class="font-semibold">Plano Familiar</h3>
       </div>
