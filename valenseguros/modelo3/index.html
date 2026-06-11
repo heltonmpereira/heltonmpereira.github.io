@@ -164,8 +164,8 @@
     <section id="inicio" class="scroll-mt-[114px] pt-[114px] lg:scroll-mt-[131px] lg:pt-[131px]" aria-label="Modalidades de planos de saúde">
       <div
         class="relative h-[520px] overflow-hidden bg-white md:h-[480px]"
-        @mouseenter="pauseCarousel()"
-        @mouseleave="startCarousel()"
+        @mouseenter="onMouseEnterCarousel()"
+        @mouseleave="onMouseLeaveCarousel()"
         @touchstart.passive="touchStart = $event.changedTouches[0].clientX"
         @touchend.passive="swipe($event.changedTouches[0].clientX)"
       >

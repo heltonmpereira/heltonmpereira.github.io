@@ -3,6 +3,7 @@ document.addEventListener("alpine:init", () => {
     whatsappNumber: "5511971058091",
     slide: 0,
     carouselTimer: null,
+    isMouseOverCarousel: false,
     touchStart: 0,
     scrolled: false,
     menuOpen: false,
@@ -113,6 +114,9 @@ document.addEventListener("alpine:init", () => {
     },
 
     startCarousel() {
+      if (this.isMouseOverCarousel) {
+        return;
+      }
       this.pauseCarousel();
       this.carouselTimer = window.setInterval(() => {
         this.slide = (this.slide + 1) % this.slides.length;
@@ -121,6 +125,16 @@ document.addEventListener("alpine:init", () => {
 
     pauseCarousel() {
       window.clearInterval(this.carouselTimer);
+    },
+
+    onMouseEnterCarousel() {
+      this.isMouseOverCarousel = true;
+      this.pauseCarousel();
+    },
+
+    onMouseLeaveCarousel() {
+      this.isMouseOverCarousel = false;
+      this.startCarousel();
     },
 
     restartCarousel() {
