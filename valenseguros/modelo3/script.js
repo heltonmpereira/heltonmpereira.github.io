@@ -3,9 +3,11 @@ document.addEventListener("alpine:init", () => {
     whatsappNumber: "5511971058091",
     slide: 0,
     carouselTimer: null,
+    isMouseOverCarousel: false,
     touchStart: 0,
     scrolled: false,
     menuOpen: false,
+    isNavigating: false,
     quote: { name: "", plan: "", situation: "" },
     navItems: [
       { label: "Início", href: "#inicio" },
@@ -17,10 +19,10 @@ document.addEventListener("alpine:init", () => {
       { label: "Avaliações", href: "#avaliacoes" },
     ],
     operatorBrands: [
-      { name: "SulAmérica", logo: "assets/company/sulamerica.png" },
-      { name: "Amil", logo: "assets/company/amil.png" },
       { name: "Bradesco Saúde", logo: "assets/company/bradescoSaude.png" },
+      { name: "SulAmérica", logo: "assets/company/sulamerica.png" },
       { name: "Porto Saúde", logo: "assets/company/portoSaude.png" },
+      { name: "Amil", logo: "assets/company/amil.png" },
     ],
     slides: [
       {
@@ -76,8 +78,8 @@ document.addEventListener("alpine:init", () => {
       { title: "Suporte", copy: "antes e depois da contratação" },
     ],
     reviewValues: [
+      { title: "Atendimento que acompanha", copy: "excelente seguradora, fui atendida da melhor forma possível e o meu plano funciona super direitinho, além de estar pagando um ótimo preço, único que nenhuma seguradora foi capaz de me oferecer." },
       { title: "Clareza em cada etapa", copy: "Explicações objetivas sobre rede, carências e valores para uma escolha sem letras miúdas." },
-      { title: "Atendimento que acompanha", copy: "Um contato próximo durante a cotação e suporte após a contratação do plano." },
       { title: "Opções para comparar", copy: "Análise de alternativas conforme perfil, localização, cobertura desejada e orçamento." },
     ],
 
@@ -86,7 +88,35 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener("scroll", () => {
         this.scrolled = window.scrollY > 18;
       }, { passive: true });
+      
+      // Listener para navegação por teclado
+      this.keyupListener = (event) => {
+        // Não navega se o usuário estiver digitando em um input ou textarea
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+          return;
+        }
+        
+        // Se já estiver navegando, ignora
+        if (this.isNavigating) {
+          return;
+        }
+        
+        if (event.key === 'ArrowLeft') {
+          this.previous();
+        } else if (event.key === 'ArrowRight') {
+          this.next();
+        }
+      };
+      window.addEventListener('keyup', this.keyupListener);
+      
       this.startCarousel();
+    },
+    
+    destroy() {
+      // Limpa o listener de teclado quando o componente for destruído
+      if (this.keyupListener) {
+        window.removeEventListener('keyup', this.keyupListener);
+      }
     },
 
     wa(message) {
@@ -98,22 +128,33 @@ document.addEventListener("alpine:init", () => {
     },
 
     next() {
+      if (this.isNavigating) return;
+      this.isNavigating = true;
       this.slide = (this.slide + 1) % this.slides.length;
       this.restartCarousel();
+      setTimeout(() => { this.isNavigating = false; }, 500);
     },
 
     previous() {
+      if (this.isNavigating) return;
+      this.isNavigating = true;
       this.slide = (this.slide - 1 + this.slides.length) % this.slides.length;
       this.restartCarousel();
+      setTimeout(() => { this.isNavigating = false; }, 500);
     },
 
     goTo(index) {
+      if (this.isNavigating) return;
+      this.isNavigating = true;
       this.slide = index;
       this.restartCarousel();
+      setTimeout(() => { this.isNavigating = false; }, 500);
     },
 
     startCarousel() {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (this.isMouseOverCarousel) {
+        return;
+      }
       this.pauseCarousel();
       this.carouselTimer = window.setInterval(() => {
         this.slide = (this.slide + 1) % this.slides.length;
@@ -122,6 +163,16 @@ document.addEventListener("alpine:init", () => {
 
     pauseCarousel() {
       window.clearInterval(this.carouselTimer);
+    },
+
+    onMouseEnterCarousel() {
+      this.isMouseOverCarousel = true;
+      this.pauseCarousel();
+    },
+
+    onMouseLeaveCarousel() {
+      this.isMouseOverCarousel = false;
+      this.startCarousel();
     },
 
     restartCarousel() {
