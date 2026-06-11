@@ -7,6 +7,7 @@ document.addEventListener("alpine:init", () => {
     touchStart: 0,
     scrolled: false,
     menuOpen: false,
+    isNavigating: false,
     quote: { name: "", plan: "", situation: "" },
     navItems: [
       { label: "Início", href: "#inicio" },
@@ -87,7 +88,35 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener("scroll", () => {
         this.scrolled = window.scrollY > 18;
       }, { passive: true });
+      
+      // Listener para navegação por teclado
+      this.keyupListener = (event) => {
+        // Não navega se o usuário estiver digitando em um input ou textarea
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+          return;
+        }
+        
+        // Se já estiver navegando, ignora
+        if (this.isNavigating) {
+          return;
+        }
+        
+        if (event.key === 'ArrowLeft') {
+          this.previous();
+        } else if (event.key === 'ArrowRight') {
+          this.next();
+        }
+      };
+      window.addEventListener('keyup', this.keyupListener);
+      
       this.startCarousel();
+    },
+    
+    destroy() {
+      // Limpa o listener de teclado quando o componente for destruído
+      if (this.keyupListener) {
+        window.removeEventListener('keyup', this.keyupListener);
+      }
     },
 
     wa(message) {
@@ -99,18 +128,27 @@ document.addEventListener("alpine:init", () => {
     },
 
     next() {
+      if (this.isNavigating) return;
+      this.isNavigating = true;
       this.slide = (this.slide + 1) % this.slides.length;
       this.restartCarousel();
+      setTimeout(() => { this.isNavigating = false; }, 500);
     },
 
     previous() {
+      if (this.isNavigating) return;
+      this.isNavigating = true;
       this.slide = (this.slide - 1 + this.slides.length) % this.slides.length;
       this.restartCarousel();
+      setTimeout(() => { this.isNavigating = false; }, 500);
     },
 
     goTo(index) {
+      if (this.isNavigating) return;
+      this.isNavigating = true;
       this.slide = index;
       this.restartCarousel();
+      setTimeout(() => { this.isNavigating = false; }, 500);
     },
 
     startCarousel() {
