@@ -17,10 +17,10 @@ document.addEventListener("alpine:init", () => {
       { label: "Avaliações", href: "#avaliacoes" },
     ],
     operatorBrands: [
-      { name: "SulAmérica", logo: "assets/company/sulamerica.png" },
-      { name: "Amil", logo: "assets/company/amil.png" },
       { name: "Bradesco Saúde", logo: "assets/company/bradescoSaude.png" },
+      { name: "SulAmérica", logo: "assets/company/sulamerica.png" },
       { name: "Porto Saúde", logo: "assets/company/portoSaude.png" },
+      { name: "Amil", logo: "assets/company/amil.png" },
     ],
     slides: [
       {
@@ -76,8 +76,8 @@ document.addEventListener("alpine:init", () => {
       { title: "Suporte", copy: "antes e depois da contratação" },
     ],
     reviewValues: [
+      { title: "Atendimento que acompanha", copy: "excelente seguradora, fui atendida da melhor forma possível e o meu plano funciona super direitinho, além de estar pagando um ótimo preço, único que nenhuma seguradora foi capaz de me oferecer." },
       { title: "Clareza em cada etapa", copy: "Explicações objetivas sobre rede, carências e valores para uma escolha sem letras miúdas." },
-      { title: "Atendimento que acompanha", copy: "Um contato próximo durante a cotação e suporte após a contratação do plano." },
       { title: "Opções para comparar", copy: "Análise de alternativas conforme perfil, localização, cobertura desejada e orçamento." },
     ],
 
