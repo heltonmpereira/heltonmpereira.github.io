@@ -113,7 +113,6 @@ document.addEventListener("alpine:init", () => {
     },
 
     startCarousel() {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       this.pauseCarousel();
       this.carouselTimer = window.setInterval(() => {
         this.slide = (this.slide + 1) % this.slides.length;
