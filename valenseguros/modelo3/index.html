@@ -465,19 +465,21 @@
   </main>
 
   <footer class="bg-[#F0F0F0] pt-16 text-black/65">
-    <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_.7fr]">
-      <div class="sm:col-span-2 lg:col-span-1">
+    <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr]">
+      <div class="sm:col-span-2 lg:col-span-1 flex flex-col items-center">
         <a href="#inicio" class="flex items-center gap-2.5 text-black">
-        <img src="assets/company/logoIcone.png" width="64" alt="Valen Seguros">
-        <span id="corretora" class="flex flex-col items-center">
-          <span id="nomeCorretora" class="pt-3 text-[2.5em] leading-[24px]">Valen</span>
-          <span id="textoCorretora" class="py-0">CORRETORA DE SEGUROS</span>
-        </span>
+          <img src="assets/company/logoIcone.png" width="64" alt="Valen Seguros">
+          <span id="corretora" class="flex flex-col">
+            <span id="nomeCorretora" class="pt-3 text-[2.5em] leading-[24px]">Valen</span>
+            <span id="textoCorretora" class="py-1">CORRETORA DE SEGUROS</span>
+          </span>
         </a>
-        <p class="mt-5 max-w-xs leading-7">Proteção para a sua saúde, seus planos e tudo o que você constrói.</p>
+        <p class="mt-5 max-w-xs leading-7 text-center">
+          Proteção para a sua saúde, seus planos e tudo o que você constrói.
+        </p>
       </div>
       
-      <div class="flex flex-col gap-2 text-sm">
+      <div class="flex flex-col gap-2 text-sm items-center justify-center">
         <h3 class="font-bold uppercase tracking-wider text-black">Contato</h3>
         <div class="mt-5 flex gap-2">
 
@@ -543,7 +545,8 @@
 
 
         </div>
-        <a target="_blank" :href="wa('Olá! Gostaria de conhecer os planos de saúde da Valen.')" class="hover:text-black">(11) 97105-8091</a><a href="mailto:contato@valenseguros.com.br" class="hover:text-black">contato@valenseguros.com.br</a>
+        <a href="mailto:contato@valenseguros.com.br" class="hover:text-black">contato@valenseguros.com.br</a>
+        <a target="_blank" :href="wa('Olá! Gostaria de conhecer os planos de saúde da Valen.')" class="hover:text-black">(11) 97105-8091</a>
       </div>
 
       <!-- Endereço -->
