@@ -465,7 +465,7 @@
   </main>
 
   <footer class="bg-[#F0F0F0] pt-16 text-black/65">
-    <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_.7fr_1fr_1fr]">
+    <div class="mx-auto grid w-[min(1180px,calc(100%-30px))] gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_.7fr]">
       <div class="sm:col-span-2 lg:col-span-1">
         <a href="#inicio" class="flex items-center gap-2.5 text-black">
         <img src="assets/company/logoIcone.png" width="64" alt="Valen Seguros">
@@ -545,7 +545,33 @@
         </div>
         <a target="_blank" :href="wa('Olá! Gostaria de conhecer os planos de saúde da Valen.')" class="hover:text-black">(11) 97105-8091</a><a href="mailto:contato@valenseguros.com.br" class="hover:text-black">contato@valenseguros.com.br</a>
       </div>
-      <div class="flex min-h-40 flex-col items-center justify-center rounded-2xl bg-[#d0d0d0] p-5 text-center"><div class="text-4xl text-[#D79AA1]">⌖</div><strong class="text-black">Valen Corretora</strong><span class="mt-2 text-xs">R. das Goiabeiras 265, B. Jardim, Santo André - SP</span></div>
+
+      <!-- Endereço -->
+      <div class="flex flex-col gap-2">
+        <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.+das+Goiabeiras+265,+B.+Jardim,+Santo+Andr%C3%A9+-+SP" class="flex min-h-40 flex-col items-center justify-center rounded-2xl p-5 text-center relative overflow-hidden group">
+          <!-- Google Maps iframe -->
+          <iframe 
+            class="absolute inset-0 w-full h-full opacity-70 group-hover:opacity-85 transition-opacity"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.7054795948165!2d-46.52864152376109!3d-23.662950764601988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42ef00000000%3A0x0!2zMjPCsDM5JzQ2LjYiUyA0NsKwMzEnMzUuMSJX!5e0!3m2!1spt-BR!2sbr!4v1719000000000">
+          </iframe>
+
+          <!-- Overlay for readability -->
+          <div class="absolute inset-0 bg-white/75 group-hover:bg-white/65 transition-colors rounded-2xl"></div>
+
+          <!-- Content -->
+          <div class="relative z-10">
+            <div class="text-4xl text-[#D79AA1]">
+              ⌖
+            </div>
+            <strong class="text-black">Valen Corretora</strong><br/>
+            <span class="mt-2 text-xs">R. das Goiabeiras 265, B. Jardim, Santo André - SP</span>
+          </div>
+        </a>
+      </div>
     </div>
     <div class="mx-auto mt-14 flex w-[min(1180px,calc(100%-30px))] flex-col justify-between gap-3 border-t border-black/10 py-5 text-[11px] sm:flex-row"><span>© <span x-text="new Date().getFullYear()"></span> Valen Corretora de Seguros.</span><span>Planos de saúde sujeitos às regras da ANS e condições das operadoras.</span></div>
   </footer>
