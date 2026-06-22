@@ -23,11 +23,13 @@
     @font-face {
         font-family: Oregon;
         src: url("assets/font/Oregon.ttf");
+        font-display: swap;
     }
 
     @font-face {
         font-family: Poppins;
         src: url("assets/font/Poppins-Regular.ttf");
+        font-display: swap;
     } 
 
     *{
@@ -248,7 +250,7 @@
                       <template x-for="(_, dotIndex) in slides" :key="dotIndex">
                         <button
                           @click="goTo(dotIndex)"
-                          class="h-1.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B]"
+                          class="h-2 p-2 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B]"
                           :class="slide === dotIndex ? 'w-4 bg-[#7A1F2B] sm:w-6' : 'w-1.5 bg-[#262626]/20 hover:bg-[#262626]/45'"
                           :aria-selected="slide === dotIndex"
                           :aria-label="slides[dotIndex].type"
@@ -256,7 +258,7 @@
                         ></button>
                       </template>
                     </div>
-                    <button @click="next()" class="grid size-7 place-items-center rounded-full text-[#555555] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B] sm:size-8" aria-label="Próximo banner">
+                    <button @click="next()" class="grid size-7 place-items-center rounded-full text-[#555555] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B] size-8" aria-label="Próximo banner">
                       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
                   </div>
@@ -382,7 +384,7 @@
 
     <section id="operadoras" class="scroll-mt-[114px] bg-[#F3F1F1] py-20 md:py-28 lg:scroll-mt-[131px]">
       <div class="mx-auto w-[min(1180px,calc(100%-30px))]">
-        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'" class="mx-auto max-w-3xl text-center transition duration-700">
+        <div x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'" class="mx-auto text-center transition duration-700">
           <p class="text-xs font-black uppercase tracking-[2.4px] text-[#7A1F2B]">Principais operadoras</p>
           <h2 class="mt-3 text-[40px] font-semibold leading-[1.08] tracking-[-1.5px] text-[#262626] md:text-[clamp(48px,5vw,64px)]">Boas escolhas começam<br><em class="font-medium text-[#7A1F2B]">por uma boa comparação.</em></h2>
           <p class="mx-auto mt-5 max-w-2xl leading-7 text-[#666666]">Rede e benefícios variam conforme categoria, região e contrato. A Valen ajuda a conferir cada detalhe.</p>
@@ -408,7 +410,7 @@
             </article>
           </template>
         </div>
-        <p class="mx-auto mt-7 max-w-4xl text-center text-xs leading-5 text-[#737373]">As características acima são gerais e podem mudar. Consulte abrangência, rede credenciada, carências, elegibilidade e condições do produto no momento da cotação.</p>
+        <p class="mx-auto mt-7 max-w-4xl text-center text-xs leading-5 text-[#333]">As características acima são gerais e podem mudar. Consulte abrangência, rede credenciada, carências, elegibilidade e condições do produto no momento da cotação.</p>
       </div>
     </section>
 
@@ -564,6 +566,7 @@
         <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.+das+Goiabeiras+265,+B.+Jardim,+Santo+Andr%C3%A9+-+SP" class="flex min-h-40 flex-col items-center justify-center rounded-2xl p-5 text-center relative overflow-hidden group">
           <!-- Google Maps iframe -->
           <iframe 
+            title="Endereço de localização da Valen Corretora de Seguros"
             class="absolute inset-0 w-full h-full opacity-70 group-hover:opacity-85 transition-opacity"
             style="border:0"
             loading="lazy"
