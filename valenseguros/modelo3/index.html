@@ -235,7 +235,7 @@
                   <span x-text="item.title"></span><br><em class="font-medium text-[#7A1F2B]" x-text="item.emphasis"></em>
                 </h1>
                 <p class="mt-3 max-w-lg text-[13px] leading-5 text-[#333] md:mt-4 md:text-[15px] md:leading-6 md:rounded md:bg-white/60 lg:bg-white/20" x-text="item.copy"></p>
-                <div class="mt-4 flex flex-col items-center gap-3 md:flex-row md:items-end md:justify-between md:gap-3 md:mt-5">
+                <div class="mt-4 flex md:flex-row items-end gap-2 md:mt-5 md:items-start md:gap-3  justify-between">
                   <a
                     :href="wa(item.message)"
                     target="_blank"
@@ -246,27 +246,23 @@
                     <span x-text="item.cta"></span><span>→</span>
                   </a>
 
-                  <div class="flex shrink-0 items-center col-start-2 gap-1 rounded-full border border-[#262626]/10 bg-white/75 p-1.5 shadow-lg backdrop-blur-md sm:gap-1.5 sm:p-2">
-                    <button @click="previous()" class="grid size-12 place-items-center rounded-full text-[#555555] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B] sm:size-12" aria-label="Banner anterior">
+                  <div class="flex shrink-0 items-center col-start-2 gap-0.5 rounded-full border border-[#262626]/10 bg-white/75 p-1 shadow-lg backdrop-blur-md sm:gap-1">
+                    <button @click="previous()" class="grid h-8 w-8 place-items-center rounded-full text-[#555555] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B] sm:h-10 sm:w-10" aria-label="Banner anterior">
                       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
                     </button>
-                    <div class="flex items-center gap-2 px-0.5 sm:gap-4 sm:px-1" role="tablist" aria-label="Escolher modalidade">
+                    <div class="flex items-center gap-3 px-0.5 sm:gap-4 sm:px-1" role="tablist" aria-label="Escolher modalidade">
                       <template x-for="(_, dotIndex) in slides" :key="dotIndex">
                         <button
                           @click="goTo(dotIndex)"
-                          class="size-12 flex items-center justify-center rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B]"
+                          class="h-2 p-2 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B]"
+                          :class="slide === dotIndex ? 'w-4 bg-[#7A1F2B] sm:w-6' : 'w-1.5 bg-[#262626]/20 hover:bg-[#262626]/45'"
                           :aria-selected="slide === dotIndex"
                           :aria-label="slides[dotIndex].type"
                           role="tab"
-                        >
-                          <span
-                            class="block h-2 rounded-full"
-                            :class="slide === dotIndex ? 'w-4 bg-[#7A1F2B] sm:w-6' : 'w-1.5 bg-[#262626]/20 hover:bg-[#262626]/45'"
-                          ></span>
-                        </button>
+                        ></button>
                       </template>
                     </div>
-                    <button @click="next()" class="grid size-12 place-items-center rounded-full text-[#555555] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B] sm:size-12" aria-label="Próximo banner">
+                    <button @click="next()" class="grid h-8 w-8 place-items-center rounded-full text-[#555555] transition hover:bg-[#F4E9EA] hover:text-[#7A1F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F2B] sm:h-10 sm:w-10" aria-label="Próximo banner">
                       <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
                   </div>
