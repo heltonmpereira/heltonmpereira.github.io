@@ -216,6 +216,7 @@
             x-transition:leave-end="opacity-0"
             class="absolute inset-0 grid grid-rows-[46%_54%] bg-white md:grid-cols-[35%_65%] md:grid-rows-1"
             :aria-hidden="slide !== index"
+            :tabindex="slide !== index ? -1 : 0"
           >
             <div class="relative row-start-1 overflow-hidden md:col-start-2">
               <img
@@ -242,6 +243,7 @@
                     rel="noopener"
                     class="inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 rounded-full bg-[#7A1F2B] px-3 text-[11px] font-extrabold text-white shadow-[0_10px_25px_rgba(122,31,43,.22)] transition hover:-translate-y-1 hover:bg-[#4B1118] sm:min-h-11 sm:gap-2 sm:px-5 sm:text-sm md:min-h-12 md:text-base"
                     :aria-label="item.cta"
+                    :tabindex="slide !== index ? -1 : 0"
                   >
                     <span x-text="item.cta"></span><span>→</span>
                   </a>
