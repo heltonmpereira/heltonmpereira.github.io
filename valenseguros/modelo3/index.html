@@ -7,9 +7,9 @@
   <meta name="description" content="Compare planos de saúde Bradesco Saúde, SulAmérica, Amil e Porto Saúde em Santo André, São Bernardo, São Caetano e todo ABC Paulista. Atendimento especializado para planos empresariais, familiares e individuais.">
   <title>Plano de Saúde em Santo André e no ABC | Empresarial, Familiar e Individual | Valen Seguros</title>
   <link rel="preload" href="assets/hero-individualM.jpg" as="image" fetchpriority="high">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet"> -->
   <script src="assets/js/tailwindcss.min.js"></script>
   <script src="assets/js/script.js" defer></script>
   <script src="assets/js/intersect.min.js" defer></script>
@@ -24,6 +24,16 @@
         font-family: Oregon;
         src: url("assets/font/Oregon.ttf");
     }
+
+    @font-face {
+        font-family: Poppins;
+        src: url("assets/font/Poppins-Regular.ttf");
+    } 
+
+    *{
+      font-family: "Poppins";
+    }
+
     .glass {
       background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(14px);
