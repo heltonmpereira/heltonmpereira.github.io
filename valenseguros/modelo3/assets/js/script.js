@@ -32,7 +32,7 @@ document.addEventListener("alpine:init", () => {
         copy: "Escolha uma cobertura que acompanhe o seu ritmo, seus planos e cada nova fase.",
         cta: "Cotar plano individual",
         message: "Olá! Quero uma cotação para plano de saúde individual.",
-        image: "assets/hero-individual.webp",
+        image: "assets/hero-individualC.jpg",
         alt: "Mulher sorrindo em casa",
       },
       {
@@ -42,7 +42,7 @@ document.addEventListener("alpine:init", () => {
         copy: "Cuidado para toda a família, com opções pensadas para a rotina e o orçamento de vocês.",
         cta: "Cotar plano familiar",
         message: "Olá! Quero uma cotação para plano de saúde familiar.",
-        image: "assets/hero-familiar.webp",
+        image: "assets/hero-familiarC.jpg",
         alt: "Família reunida em casa",
       },
       {
@@ -52,7 +52,7 @@ document.addEventListener("alpine:init", () => {
         copy: "Valorize sua equipe com um benefício que ajuda a atrair talentos e fortalece sua empresa.",
         cta: "Cotar plano empresarial",
         message: "Olá! Quero uma cotação para plano de saúde empresarial.",
-        image: "assets/hero-empresarial.webp",
+        image: "assets/hero-empresarialC.jpg",
         alt: "Equipe reunida em um escritório",
       },
     ],
